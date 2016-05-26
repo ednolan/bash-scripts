@@ -10,7 +10,7 @@
 PRIMARY_SCREEN=`xrandr | sed -n -e 's/^\(.*\) connected primary.*/\1/p'`
 
 # get mode line from cvt
-MODELINE=`cvt $1 $2 | sed -n -e 's/^.*Modeline //p'`
+MODELINE=`cvt $1 $2 60 | sed -n -e 's/^.*Modeline //p'`
 if [[ $MODELINE == *usage:* ]] # invalid input to cvt
 then
   echo "invalid resolution"
@@ -19,8 +19,9 @@ fi
 
 # mode name is in quotes
 MODE_NAME=`echo $MODELINE | sed -n -e 's/^"\(.*\)".*/\1/p'`
+MODELINE_TAIL=`echo $MODELINE | sed -n -e 's/^".*"\(.*\)/\1/p'`
 
 # silence stderr if mode already exists
-xrandr --newmode $MODELINE 2> /dev/null
+xrandr --newmode $MODE_NAME $MODELINE_TAIL 2> /dev/null
 xrandr --addmode $PRIMARY_SCREEN $MODE_NAME
 xrandr --output $PRIMARY_SCREEN --mode $MODE_NAME
