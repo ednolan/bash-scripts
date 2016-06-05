@@ -18,8 +18,9 @@ fi
 
 # mode name is in quotes
 mode_name=$(echo $modeline | sed -n -e 's/^"\(.*\)".*/\1/p')
+modeline_tail=$(echo $modeline | sed -n -e 's/^".*"\(.*\)/\1/p')
 
 # silence stderr if mode already exists
-xrandr --newmode $modeline 2> /dev/null
+xrandr --newmode $modeline $modeline_tail 2> /dev/null
 xrandr --addmode $primary_screen $mode_name
 xrandr --output $primary_screen --mode $mode_name
