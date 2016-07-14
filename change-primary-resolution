@@ -7,7 +7,7 @@
 #  Y: Desired vertial resolution
 
 # extract primary screen name from xrandr
-primary_screen=$(xrandr | sed -n -e 's/^\(.*\) connected primary.*/\1/p')
+primary_screen=$(xrandr | grep -E " connected (primary )?[1-9]+" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
 
 # get mode line from cvt
 modeline=$(cvt $1 $2 | sed -n -e 's/^.*Modeline //p')
@@ -21,6 +21,6 @@ mode_name=$(echo $modeline | sed -n -e 's/^"\(.*\)".*/\1/p')
 modeline_tail=$(echo $modeline | sed -n -e 's/^".*"\(.*\)/\1/p')
 
 # silence stderr if mode already exists
-xrandr --newmode $modeline $modeline_tail 2> /dev/null
+xrandr --newmode $mode_name $modeline_tail 2> /dev/null
 xrandr --addmode $primary_screen $mode_name
 xrandr --output $primary_screen --mode $mode_name
