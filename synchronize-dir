@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# synchronize-dir
+# Synchronizes a directory with a remote directory
+# with the same path using rsync
+# Usage: ./synchronize-dir directory user@remote_host
+
+dir_path="${1}"
+remote="${2}"
+
+options=('-a' '--relative' '--del')
+
+# do rsync dry run
+rsync "${options[@]}" '--dry-run' '--verbose' "${dir_path}" "${remote}:/"
+read -p 'Apply these changes (y/n)?' choice
+case "${choice}" in
+  y|Y ) rsync "${options[@]}" "${dir_path}" "${remote}:/";;
+  n|N ) echo 'Not performing sync';;
+  * ) echo 'Invalid choice';;
+esac
