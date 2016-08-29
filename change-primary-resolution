@@ -22,5 +22,5 @@ modeline_tail=$(echo "${modeline}" | sed -n -e 's/^".*"\(.*\)/\1/p')
 
 # silence stderr if mode already exists
 xrandr --newmode "${mode_name} ${modeline_tail}" 2> /dev/null
-xrandr --addmode "${primary_screen} ${mode_name}"
+xrandr --addmode "${primary_screen}" "${mode_name}"
 xrandr --output "${primary_screen}" --mode "${mode_name}"
