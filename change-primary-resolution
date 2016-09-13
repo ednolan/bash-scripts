@@ -15,10 +15,11 @@ if [[ "${modeline}" == *usage:* ]] ; then # invalid input to cvt
   echo 'invalid resolution'
   exit 1
 fi
-modeline_arr=($(echo "${modeline}"))
 
-# mode name is in quotes
+# get mode name from modeline
 mode_name=$(echo "${modeline}" | sed -n -e 's/^"\(.*\)".*/"\1"/p')
+# convert modeline to array
+modeline_arr=($(echo "${modeline}"))
 
 # silence stderr if mode already exists
 xrandr --newmode "${modeline_arr[@]}" 2>/dev/null
