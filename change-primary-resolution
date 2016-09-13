@@ -6,7 +6,7 @@
 #  X: Desired horizontal resolution (multiple of 8)
 #  Y: Desired vertial resolution
 
-# extract primary screen name from xrandr
+# get primary screen name from xrandr
 primary_screen=$(xrandr | grep -E ' connected (primary )?[1-9]+' | sed -e 's/\([A-Z0-9]\+\) connected.*/\1/')
 
 # get mode line from cvt
@@ -15,12 +15,12 @@ if [[ "${modeline}" == *usage:* ]] ; then # invalid input to cvt
   echo 'invalid resolution'
   exit 1
 fi
+modeline_arr=($(echo "${modeline}"))
 
 # mode name is in quotes
-mode_name=$(echo "${modeline}" | sed -n -e 's/^"\(.*\)".*/\1/p')
-modeline_tail=$(echo "${modeline}" | sed -n -e 's/^".*"\(.*\)/\1/p')
+mode_name=$(echo "${modeline}" | sed -n -e 's/^"\(.*\)".*/"\1"/p')
 
 # silence stderr if mode already exists
-xrandr --newmode "${mode_name} ${modeline_tail}" 2> /dev/null
+xrandr --newmode "${modeline_arr[@]}" 2>/dev/null
 xrandr --addmode "${primary_screen}" "${mode_name}"
 xrandr --output "${primary_screen}" --mode "${mode_name}"
