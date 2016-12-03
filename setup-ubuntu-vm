@@ -16,8 +16,8 @@ apt install -y cinnamon blueberry
 apt install -y git emacs opam pioneers openssh-server audacity
 
 # Download and install theme files
-sudo -u eddie wget -O '~/Downloads/Modern-Mint.zip' 'https://dl.opendesktop.org/api/files/download/id/1464717637/174945-Modern%20Mint.zip'
-sudo -u eddie unzip '~/Downloads/Modern-Mint.zip' -d '~/.themes/'
+sudo -u eddie wget -O '/home/eddie/Downloads/Modern-Mint.zip' 'https://dl.opendesktop.org/api/files/download/id/1464717637/174945-Modern%20Mint.zip'
+sudo -u eddie unzip '/home/eddie/Downloads/Modern-Mint.zip' -d '/home/eddie/.themes/'
 apt install -y adwaita-icon-theme adwaita-icon-theme-full
 
 # Generate ssh key
