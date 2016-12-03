@@ -3,32 +3,32 @@
 read -p "Hostname: " hostname_in
 
 # Set hostname
-sudo echo "${hostname_in}" > /etc/hostname
-sudo sed -i -e "2s/ubuntu/${hostname_in}/" /etc/hosts
-sudo hostname "${hostname_in}"
+echo "${hostname_in}" > /etc/hostname
+sed -i -e "2s/ubuntu/${hostname_in}/" /etc/hosts
+hostname "${hostname_in}"
 
 # Add ppa for cinnamon and install it
-sudo apt-add-repository ppa:embrosyn/cinnamon
-sudo apt update
-sudo apt install -y cinnamon blueberry
+apt-add-repository -y ppa:embrosyn/cinnamon
+apt update
+apt install -y cinnamon blueberry
 
 # Install packages
-sudo apt install -y git emacs opam pioneers openssh-server audacity
+apt install -y git emacs opam pioneers openssh-server audacity
 
 # Download and install theme files
-wget -O '~/Downloads/Modern-Mint.zip' 'https://dl.opendesktop.org/api/files/download/id/1464717637/174945-Modern%20Mint.zip'
-unzip '~/Downloads/Modern-Mint.zip' -d '~/.themes/'
-sudo apt install -y adwaita-icon-theme adwaita-icon-theme-full
+sudo -u eddie wget -O '~/Downloads/Modern-Mint.zip' 'https://dl.opendesktop.org/api/files/download/id/1464717637/174945-Modern%20Mint.zip'
+sudo -u eddie unzip '~/Downloads/Modern-Mint.zip' -d '~/.themes/'
+apt install -y adwaita-icon-theme adwaita-icon-theme-full
 
 # Generate ssh key
-ssh-keygen -t rsa -c 'eddiejnolan@gmail.com'
+sudo -u eddie ssh-keygen -t rsa -C 'eddiejnolan@gmail.com'
 # Set up git
-git config --global user.name 'Edward Nolan'
+sudo -u eddie git config --global user.name 'Edward Nolan'
 git config --global user.email 'eddiejnolan@gmail.com'
 
 # OCaml
-opam init
-opam switch 4.03.0
+sudo -u eddie `yes | opam init`
+sudo -u eddie opam switch 4.03.0
 
 # Desmond
-sudo apt install -y libgtkmm-3.0-dev libsndfile1-dev
+apt install -y libgtkmm-3.0-dev libsndfile1-dev

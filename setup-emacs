@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir ~/.emacs.d/
 cd ~/.emacs.d/
 git init
 git remote add origin git@gitlab.ednolan.com:ednolan/emacs-init.git
