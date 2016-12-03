@@ -1,0 +1,7 @@
+#!/bin/bash
+cd ~/.emacs.d/
+git init
+git remote add origin git@gitlab.ednolan.com:ednolan/emacs-init.git
+git pull origin master
+eval `opam config env`
+opam install tuareg merlin ocp-indent
