@@ -13,12 +13,12 @@ sudo apt update
 sudo apt install -y cinnamon blueberry
 
 # Install packages
-sudo apt install git emacs opam pioneers openssh-server audacity
+sudo apt install -y git emacs opam pioneers openssh-server audacity
 
 # Download and install theme files
 wget -O '~/Downloads/Modern-Mint.zip' 'https://dl.opendesktop.org/api/files/download/id/1464717637/174945-Modern%20Mint.zip'
 unzip '~/Downloads/Modern-Mint.zip' -d '~/.themes/'
-sudo apt install adwaita-icon-theme adwaita-icon-theme-full
+sudo apt install -y adwaita-icon-theme adwaita-icon-theme-full
 
 # Generate ssh key
 ssh-keygen -t rsa -c 'eddiejnolan@gmail.com'
@@ -31,5 +31,4 @@ opam init
 opam switch 4.03.0
 
 # Desmond
-sudo apt install libgtkmm-3.0-dev
-sudo apt install libsndfile1-dev
+sudo apt install -y libgtkmm-3.0-dev libsndfile1-dev
