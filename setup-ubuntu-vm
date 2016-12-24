@@ -13,7 +13,7 @@ apt update
 apt install -y cinnamon blueberry
 
 # Install packages
-apt install -y git emacs opam pioneers openssh-server audacity
+apt install -y git emacs opam pioneers openssh-server audacity pianobooster
 
 # Download and install theme files
 sudo -u eddie wget -O '/home/eddie/Downloads/Modern-Mint.zip' 'https://dl.opendesktop.org/api/files/download/id/1464717637/174945-Modern%20Mint.zip'
@@ -30,5 +30,8 @@ git config --global user.email 'eddiejnolan@gmail.com'
 sudo -u eddie `yes | opam init`
 sudo -u eddie opam switch 4.03.0
 
+# CMake
+apt install cmake
+
 # Desmond
-apt install -y libgtkmm-3.0-dev libsndfile1-dev
+apt install -y libgtkmm-3.0-dev libsndfile1-dev uuid-dev
