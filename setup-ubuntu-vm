@@ -30,5 +30,14 @@ git config --global user.email 'eddiejnolan@gmail.com'
 sudo -u eddie `yes | opam init`
 sudo -u eddie opam switch 4.03.0
 
+# CMake
+apt install cmake
+
+# Python
+apt install python-pip python3-tk
+
+# Tex
+apt install texlive latexmk
+
 # Desmond
 apt install -y libgtkmm-3.0-dev libsndfile1-dev
