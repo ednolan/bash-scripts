@@ -39,5 +39,8 @@ apt install python-pip python3-tk
 # Tex
 apt install texlive latexmk
 
+# Semio
+sudo -u eddie opam install menhir ppx_sexp_conv ppx_compare ppx_custom_printf ppx_enumerate core ocamlgraph
+
 # Desmond
 apt install -y libgtkmm-3.0-dev libsndfile1-dev uuid-dev
