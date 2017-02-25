@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Set hostname
+read -p "Hostname: " hostname_in
+echo "${hostname_in}" > /etc/hostname
+sed -i -e "2s/ubuntu/${hostname_in}/" /etc/hosts
+hostname "${hostname_in}"
+
+# Add ppa for cinnamon and install it
+apt-add-repository -y ppa:embrosyn/cinnamon
+apt update
+apt install -y cinnamon blueberry
+
+# Misc packages
+apt install -y pioneers audacity pianobooster
+
+# Development
+apt install -y git emacs opam openssh-server
+
+# Adwaita theme
+apt install -y adwaita-icon-theme adwaita-icon-theme-full
+
+# OCaml
+apt install -y opam
+
+# CMake
+apt install -y cmake
+
+# Python
+apt install -y python-pip python3-tk
+
+# Tex
+apt install -y texlive latexmk
+
+# Desmond
+apt install -y libgtkmm-3.0-dev libsndfile1-dev uuid-dev
