@@ -11,11 +11,14 @@ apt-add-repository -y ppa:embrosyn/cinnamon
 apt update
 apt install -y cinnamon blueberry
 
-# Misc packages
-apt install -y pioneers audacity pianobooster
+# Audio
+apt install -y audacity pianobooster
 
 # Development
 apt install -y git emacs opam openssh-server
+
+# Video games
+apt install -y pioneers
 
 # Adwaita theme
 apt install -y adwaita-icon-theme adwaita-icon-theme-full
