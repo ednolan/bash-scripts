@@ -29,6 +29,9 @@ apt install -y opam
 # CMake
 apt install -y cmake
 
+# Rust
+apt install -y rustc cargo
+
 # Python
 apt install -y python-pip python3-tk
 
