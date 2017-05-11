@@ -9,6 +9,10 @@ ssh-keygen -t rsa -C 'eddiejnolan@gmail.com'
 git config --global user.name 'Edward Nolan'
 git config --global user.email 'eddiejnolan@gmail.com'
 
+# Go
+touch ~/.bash_profile
+echo "export GOPATH=$HOME/sync/go" >> ~/.bash_profile
+
 # Opam
 yes | opam init
 opam switch 4.03.0
