@@ -38,6 +38,13 @@ apt install -y cmake
 # Go
 apt install -y golang-go
 
+# Mongodb
+apt install -y mongodb
+
+# Node.js
+curl -sL https://deb.nodesource.com/setup_7.x | bash -
+apt-get install -y nodejs
+
 # OCaml
 apt install -y opam
 
@@ -48,7 +55,7 @@ apt install -y python-pip python3-tk
 apt install -y rustc cargo
 
 # Tex
-apt install -y texlive latexmk
+apt install -y texlive latexmk xetex
 
 ## Projects and libraries
 
