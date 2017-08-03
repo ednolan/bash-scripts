@@ -55,7 +55,7 @@ apt install -y python-pip python3-tk
 apt install -y rustc cargo
 
 # Tex
-apt install -y texlive latexmk xetex
+apt install -y texlive latexmk texlive-xetex
 
 ## Projects and libraries
 
