@@ -1,10 +1,17 @@
 #!/bin/bash
 
 # Set hostname
-read -p "Hostname: " hostname_in
-echo "${hostname_in}" > /etc/hostname
-sed -i -e "2s/ubuntu/${hostname_in}/" /etc/hosts
-hostname "${hostname_in}"
+read -p 'Change hostname?' choice
+case "${choice}" in
+    y|Y ) {
+        read -p "Hostname: " hostname_in
+        echo "${hostname_in}" > /etc/hostname
+        sed -i -e "2s/ubuntu/${hostname_in}/" /etc/hosts
+        hostname "${hostname_in}"
+    } ;;
+    n|N ) echo 'Not changing hostname';;
+    * ) echo 'Invalid choice';;
+esac
 
 ## Desktop environment/theme
 
@@ -46,7 +53,7 @@ curl -sL https://deb.nodesource.com/setup_7.x | bash -
 apt-get install -y nodejs
 
 # OCaml
-apt install -y opam
+apt install -y opam m4
 
 # Python
 apt install -y python-pip python3-tk

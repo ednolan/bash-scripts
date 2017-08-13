@@ -10,8 +10,8 @@ git config --global user.name 'Edward Nolan'
 git config --global user.email 'eddiejnolan@gmail.com'
 
 # Go
-touch ~/.bash_profile
-echo "export GOPATH=$HOME/sync/go" >> ~/.bash_profile
+touch ~/.bashrc
+echo "export GOPATH=$HOME/sync/go" >> ~/.bashrc
 
 # Opam
 yes | opam init
