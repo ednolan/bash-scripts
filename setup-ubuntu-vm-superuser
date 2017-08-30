@@ -32,7 +32,7 @@ apt install -y audacity pianobooster
 apt install -y git emacs
 
 # Utilities
-apt install -y gnome-tweak-tool k4dirstat openssh-server tree
+apt install -y gnome-tweak-tool k4dirstat openssh-server systemd-coredump tree
 
 # Video games
 apt install -y pioneers
