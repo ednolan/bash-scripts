@@ -17,9 +17,9 @@ if [[ "${modeline}" == *usage:* ]] ; then # invalid input to cvt
 fi
 
 # get mode name from modeline
-mode_name=$(echo "${modeline}" | sed -n -e 's/^"\(.*\)".*/"\1"/p')
+mode_name=$(echo "${modeline}" | sed -n -e 's/^"\(.*\)".*/\1/p')
 # convert modeline to array
-modeline_arr=($(echo "${modeline}"))
+modeline_arr=($(echo "${modeline}" | sed -n -e 's/"//gp'))
 
 # silence stderr if mode already exists
 xrandr --newmode "${modeline_arr[@]}" 2>/dev/null
