@@ -39,6 +39,9 @@ apt install -y pioneers
 
 ## Programming languages/tools
 
+# C++
+apt install -y clang libclang-dev
+
 # CMake
 apt install -y cmake
 
