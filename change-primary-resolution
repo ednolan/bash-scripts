@@ -4,7 +4,7 @@
 # Changes the resolution of the primary display using xrandr
 # Usage: ./change-primary-resolution X Y
 #  X: Desired horizontal resolution (multiple of 8)
-#  Y: Desired vertial resolution
+#  Y: Desired vertical resolution
 
 # get primary screen name from xrandr
 primary_screen=$(xrandr | grep -E ' connected (primary )?[1-9]+' | sed -e 's/\([A-Z0-9]\+\) connected.*/\1/')
