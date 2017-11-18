@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Usage: ./setup-user
+
 # Modern mint theme
 wget -O '/home/eddie/Downloads/Modern-Mint.zip' 'https://dl.opendesktop.org/api/files/download/id/1464717637/174945-Modern%20Mint.zip'
 unzip '/home/eddie/Downloads/Modern-Mint.zip' -d '/home/eddie/.themes/'

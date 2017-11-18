@@ -1,17 +1,6 @@
 #!/bin/bash
 
-# Set hostname
-read -p 'Change hostname?' choice
-case "${choice}" in
-    y|Y ) {
-        read -p "Hostname: " hostname_in
-        echo "${hostname_in}" > /etc/hostname
-        sed -i -e "2s/ubuntu/${hostname_in}/" /etc/hosts
-        hostname "${hostname_in}"
-    } ;;
-    n|N ) echo 'Not changing hostname';;
-    * ) echo 'Invalid choice';;
-esac
+# Usage: ./install-software
 
 ## Desktop environment/theme
 
@@ -44,6 +33,9 @@ apt install -y clang libclang-dev exuberant-ctags libgflags-dev libboost-all-dev
 
 # CMake
 apt install -y cmake
+
+# Git
+apt install -y gitk
 
 # Go
 apt install -y golang-go
