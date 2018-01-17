@@ -66,3 +66,6 @@ apt install -y libasound-dev libfftw3-dev
 
 # Desmond
 apt install -y libgtkmm-3.0-dev libsndfile1-dev uuid-dev
+
+# Emacs Dev
+apt install -y libxpm-dev libjpeg-dev libgif-dev libtiff-dev gnutls-dev
