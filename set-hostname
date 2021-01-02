@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# Changes the hostname
-# Usage: ./set-hostname from to
-
-echo "$1" > /etc/hostname
-sed -i -e "2s/$1/$2/" -- /etc/hosts
-hostname "$2"
